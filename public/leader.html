@@ -1,0 +1,53 @@
+<!-- public/leader.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Leader Dashboard</h1>
+    <div id="status">
+        <p>Waiting for all patterns...</p>
+    </div>
+    <button id="playAllBtn" disabled>Play All Patterns</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        let patternsReceived = {
+            drums: null,
+            piano: null,
+            // Voeg hier extra instrumenten toe
+        };
+
+        // Ontvang opgeslagen patronen van spelers
+        socket.on('pattern', (data) => {
+            if (data.instrument === 'drums') {
+                patternsReceived.drums = data.pattern;
+            } else if (data.instrument === 'piano') {
+                patternsReceived.piano = data.pattern;
+            }
+            // Check of alle patronen binnen zijn
+            if (patternsReceived.drums && patternsReceived.piano) {
+                document.getElementById('playAllBtn').disabled = false;
+                document.getElementById('status').textContent = 'All patterns received!';
+            }
+        });
+
+        // Start afspelen van alle patronen zodra op play wordt gedrukt
+        document.getElementById('playAllBtn').addEventListener('click', () => {
+            playAllPatterns(); // Functie om alle patronen tegelijk af te spelen
+        });
+
+        function playAllPatterns() {
+            // Implementeer afspelen van alle patronen tegelijk
+            console.log('Playing drums and piano patterns together:', patternsReceived);
+            // Voeg hier de code toe om de patronen af te spelen
+        }
+    </script>
+</body>
+</html>

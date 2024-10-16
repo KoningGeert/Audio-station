@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Sequencer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="instrument" id="sequencer">
+            <div class="row">
+                <div class="instrument-type" data-instrument="kick">Kick</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+            <div class="row">
+                <div class="instrument-type" data-instrument="hat">Hat</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+            <div class="row">
+                <div class="instrument-type" data-instrument="snare">Snare</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+            <div class="row">
+                <div class="instrument-type" data-instrument="clap">Clap</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btnGroup">
+        <button class="btn" id="startBtn">Play</button>
+        <button class="btn" id="stopBtn">Stop</button>
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="saveBtn">Save</button>
+    </div>
+    <div class="btnGroup">
+        <button class="btn"><a href="piano.html">Piano</a></button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

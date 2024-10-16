@@ -1,0 +1,146 @@
+body {
+    background-color: #5B5B5B; 
+    font-family: Arial, sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    flex-direction: column; 
+    position: relative; /* Zorg ervoor dat elementen zich binnen de body correct positioneren */
+}
+
+.container {
+    max-width: 600px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    background-color: #363636; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Zorg ervoor dat de containers onder de knoppen komen */
+}
+
+
+.wrapper {
+    display: flex; 
+    gap: 20px;  /* Ruimte tussen de drum en piano containers */
+}
+
+#sequencer, #piano {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* Zorgt ervoor dat beide 8 cellen plus de instrument naam hebben */
+    grid-gap: 5px;
+    width: 100%;
+}
+
+.row {
+    display: contents;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: #eee; /* standaard kleur voor cellen */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.cell-beat {
+    background-color: #aaa; /* Kleur voor cellen met de klasse 'cell-beat' */
+}
+
+.cell:hover {
+    background-color: #dcdcdc;
+}
+
+.cell.active {
+    background-color: #17D5B9; /* Kleur wanneer actief */
+    transform: scale(1.05);
+}
+
+.cell.timer {
+    background-color: #8fc5ab; /* Kleur wanneer de sequencer actief is */
+}
+
+.timer {
+    background-color: yellow; /* Of een andere kleur naar keuze */
+}
+
+
+.slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 25%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+
+.instrument-type {
+    font-weight: bold;
+    margin-bottom: 5px; 
+    color: #fff; 
+    height: 40px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.btnGroup {
+    margin-top: 20px;
+    z-index: 10; /* Zorg ervoor dat de knoppen altijd boven andere elementen komen */
+    position: relative;
+}
+
+.btn {
+    background-color: #4caf50;
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    padding: 12px 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    font-size: 16px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    position: relative; /* Zorg ervoor dat de knoppen correct worden weergegeven binnen hun groep */
+}
+
+.btn:hover {
+    background-color: #45a049; 
+}
+
+.btn:active {
+    transform: scale(0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); 
+}

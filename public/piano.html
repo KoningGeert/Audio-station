@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="instrument" id="piano">
+            <!-- Piano-sequencer rijen -->
+            <div class="row">
+                <div class="instrument-type">C4</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">D</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">E</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">F</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">G</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">A</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">B</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+
+            <div class="row">
+                <div class="instrument-type">C5</div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+                <div class="cell cell-beat"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btnGroup">
+        <button class="btn" id="startBtn">Play</button>
+        <button class="btn" id="stopBtn">Stop</button>
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="saveBtn">Save</button>
+    </div>
+    <div class="btnGroup">
+        <button class="btn"><a href="drums.html">Drums</a></button>
+    </div>
+
+    <script>
+        // Wacht tot de DOM volledig is geladen
+        document.addEventListener('DOMContentLoaded', () => {
+            // Voeg event listeners toe aan de cellen om ze aan/uit te zetten
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.addEventListener('click', () => {
+                    cell.classList.toggle('active');
+                    sendPattern(); // Verzend het patroon als het wordt gewijzigd
+                });
+            });
+        });
+
+        // Voeg de save-knop functionaliteit toe
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            sendPattern(); // Verstuur het patroon naar de leiderpagina
+        });
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
