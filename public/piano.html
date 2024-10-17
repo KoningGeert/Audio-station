@@ -120,23 +120,7 @@
         <button class="btn"><a href="drums.html">Drums</a></button>
     </div>
 
-    <script>
-        // Wacht tot de DOM volledig is geladen
-        document.addEventListener('DOMContentLoaded', () => {
-            // Voeg event listeners toe aan de cellen om ze aan/uit te zetten
-            document.querySelectorAll('.cell').forEach(cell => {
-                cell.addEventListener('click', () => {
-                    cell.classList.toggle('active');
-                    sendPattern(); // Verzend het patroon als het wordt gewijzigd
-                });
-            });
-        });
 
-        // Voeg de save-knop functionaliteit toe
-        document.getElementById('saveBtn').addEventListener('click', () => {
-            sendPattern(); // Verstuur het patroon naar de leiderpagina
-        });
-    </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="scripts.js"></script>
 </body>
